@@ -2,7 +2,7 @@ from typing import Dict, List
 
 
 class Warehouse:
-    def __init__(self, capacity: int, list_of_products: list[str]):
+    def __init__(self, capacity: int, list_of_products: list[str]) -> None:
         self.capacity = capacity
         self.list_of_products = list_of_products
         self.map_of_products: Dict[str, int] = {}
@@ -27,11 +27,11 @@ class Warehouse:
     def list(self) -> List[str]:
         return self.list_of_products
 
-    def add(self, amount: int, item: str):
+    def add(self, amount: int, item: str) -> None:
         if self.has_util(item) and (self.map_of_products[item] + amount) <= self.capacity:
             self.map_of_products[item] += amount
 
-    def remove(self, amount, item):
+    def remove(self, amount: int, item: str) -> None:
         if self.has_util(item):
             if self.map_of_products[item] >= amount:
                 self.map_of_products[item] -= amount
